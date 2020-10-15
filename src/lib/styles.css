@@ -23,7 +23,7 @@ html {
 }
 
 body {
-  background: #0d0d0d;
+  background: #10100f;
   color: #fff;
   margin: 0;
   padding: 0;
@@ -43,10 +43,15 @@ body {
   justify-content: center;
 }
 
+.logo {
+  display: block;
+  width: 16rem;
+}
+
 h1 {
   font-weight: normal;
   font-size: 1.4rem;
-  margin: 2rem 0 0;
+  margin: 3rem 0 0;
 }
 
 .name {
