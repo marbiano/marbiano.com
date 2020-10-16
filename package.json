@@ -8,6 +8,9 @@
     "start": "next start"
   },
   "dependencies": {
+    "@modulz/radix-icons": "^3.1.0",
+    "classnames": "^2.2.6",
+    "gsap": "^3.5.1",
     "next": "^9.5.6-canary.0",
     "react": "16.13.1",
     "react-dom": "16.13.1"

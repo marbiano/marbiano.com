@@ -1,0 +1,58 @@
+.logo {
+  display: flex;
+  align-items: flex-end;
+  --gimli-to-aragorn-ratio: 3.217;
+  --gimli-to-legolas-ratio: 1.63;
+  --gimli-width: 43px;
+}
+
+.gimli {
+  display: block;
+  width: var(--gimli-width);
+  color: #ffdb05;
+  transform: translate(1.5%, -0.75%);
+  position: relative;
+  z-index: 3;
+}
+
+.aragorn {
+  display: block;
+  width: calc(var(--gimli-width) * var(--gimli-to-aragorn-ratio));
+  color: #ffdb05;
+  transform: translate(-20%, 0);
+  position: relative;
+  z-index: 2;
+}
+
+.legolas {
+  display: block;
+  width: calc(var(--gimli-width) * var(--gimli-to-legolas-ratio));
+  color: #ffdb05;
+  transform: translate(1.5%, -1%);
+  position: relative;
+  z-index: 1;
+}
+
+.gimli svg,
+.aragorn svg,
+.legolas svg {
+  width: 100%;
+  overflow: visible;
+}
+
+.gimli [data-corner] {
+  border-radius: 50%;
+  background: rgba(3, 169, 244, 0.3);
+  border: 1px solid rgba(3, 169, 244, 0.6);
+  transition: background 0.1s ease-out;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* transform: translate(-$offset, -$offset); */
+}
+
+.gimli [data-corner]:hover {
+  background: rgba(3, 169, 244, 0.6);
+}
