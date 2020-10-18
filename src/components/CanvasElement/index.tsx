@@ -1,5 +1,7 @@
 import classnames from 'classnames';
 import { gsap } from 'gsap';
+import { CustomEase } from 'gsap/dist/CustomEase';
+import { CustomWiggle } from 'gsap/dist/CustomWiggle';
 import useObject from '@/lib/hooks/useObject';
 import styles from './styles.module.css';
 import { useEffect } from 'react';
@@ -25,17 +27,34 @@ const CanvasElement: React.FC<CanvasElementProps> = ({
   const { rootEl, rotateEl } = useObject({ active, onSelect });
 
   useEffect(() => {
-    const tl = gsap.timeline();
+    gsap.registerPlugin(CustomEase, CustomWiggle);
+    CustomWiggle.create('xEase', { type: 'uniform', wiggles: 20 });
+    CustomWiggle.create('yEase', { type: 'uniform', wiggles: 16 });
+    CustomWiggle.create('rotationEase', { type: 'uniform', wiggles: 14 });
+    const tl = gsap.timeline({ paused: true });
+    tl.to(rootEl.current, { x: '+=2', ease: 'xEase', duration: 0.5 });
+    tl.to(rootEl.current, { y: '+=3', ease: 'yEase', duration: 0.5 }, '<');
+    tl.to(
+      rootEl.current,
+      {
+        rotation: 2,
+        ease: 'rotationEase',
+        duration: 0.5,
+      },
+      '<',
+    );
+    tl.to(
+      rootEl.current,
+      {
+        color: activeColor,
+        rotate: 20,
+        duration: 1,
+        ease: 'elastic.out(1, 0.3)',
+      },
+      '>-0.2',
+    );
     if (active) {
-      tl.to(
-        rootEl.current,
-        {
-          rotation: 20,
-          duration: 0.5,
-          ease: 'back.inOut(10)',
-        },
-        '>',
-      );
+      tl.play();
     }
   }, [active, rootEl]);
 
@@ -48,7 +67,7 @@ const CanvasElement: React.FC<CanvasElementProps> = ({
           ? styles.selected
           : styles.container,
       )}
-      style={{ color: active ? activeColor || color : color }}
+      style={{ color }}
     >
       {children}
       {active && (

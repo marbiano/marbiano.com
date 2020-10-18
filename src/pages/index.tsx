@@ -9,7 +9,7 @@ const IndexPage: React.FC = () => {
   const tagLineRef = useRef(null);
 
   useEffect(() => {
-    const tl = gsap.timeline({ paused: true });
+    const tl = gsap.timeline({ paused: true, delay: 0.2 });
     tl.fromTo(
       titleRef.current,
       { opacity: 1, y: 0 },
@@ -43,7 +43,9 @@ const IndexPage: React.FC = () => {
             type="button"
             onClick={() => setArtMode(!artMode)}
             className="cta"
-          />
+          >
+            Play
+          </button>
         )}
       </div>
     </>

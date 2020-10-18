@@ -3206,8 +3206,8 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2:
 
 gsap@^3.5.1:
   version "3.5.1"
-  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.5.1.tgz#36cf76787d1758e749469d5e9cbe365c186544c4"
-  integrity sha512-EMV0RSUKZNeTUzLKAizGlwxVOUyif3/g8I3S1aA/hf3gbqwBvmQ02x1RdTBQNQMOpHCVBv9y/vaHwfctoAg8zw==
+  resolved "http://npm.greensock.com/@gsap%2fbusiness/-/gsap-3.5.1.tgz#4f0603e6c6e4cbf8c57c9e90bb911d69bd76b00d"
+  integrity sha512-r8MW9yxXhVIef6Ja4DA4yWoEfAvvO1BC0Iiy+QhR+35oKkj8evdMmUzrgD81EmpqLidX7ihOi9pu5OeeumvF2Q==
 
 has-flag@^3.0.0:
   version "3.0.0"
