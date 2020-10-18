@@ -1,9 +1,10 @@
-import { useEffect, useRef, useCallback } from 'react';
 import classnames from 'classnames';
 import { gsap } from 'gsap';
-import { Draggable } from 'gsap/dist/Draggable';
+import { CustomEase } from 'gsap/dist/CustomEase';
+import { CustomWiggle } from 'gsap/dist/CustomWiggle';
+import useObject from '@/lib/hooks/useObject';
 import styles from './styles.module.css';
-import useClickOutside from '@/lib/useClickOutside';
+import { useEffect } from 'react';
 
 interface CanvasElementProps {
   color: string;
@@ -23,78 +24,58 @@ const CanvasElement: React.FC<CanvasElementProps> = ({
   onSelect,
   children,
 }) => {
-  const draggableInstance = useRef(null);
-  const rotableInstance = useRef(null);
-  const artEl = useRef(null);
-  const knobEl = useRef(null);
-
-  const setDraggable = useCallback(
-    function (event) {
-      const isRotation = this.vars.type === 'rotation';
-      const isKnob = event.target === knobEl.current;
-
-      if (artEl.current.contains(event.target)) {
-        onSelect(artEl.current);
-      }
-
-      if (isKnob) {
-        if (!isRotation) {
-          draggableInstance.current.disable();
-          rotableInstance.current.enable().startDrag(event);
-        }
-      } else if (isRotation) {
-        rotableInstance.current.disable();
-        draggableInstance.current.enable().startDrag(event);
-      }
-    },
-    [onSelect],
-  );
+  const { rootEl, rotateEl } = useObject({ active, onSelect });
 
   useEffect(() => {
-    gsap.registerPlugin(Draggable);
-    if (draggableInstance.current === null) {
-      draggableInstance.current = new Draggable(artEl.current, {
-        onPress: setDraggable,
-        zIndexBoost: false,
-      });
-    }
-    if (rotableInstance.current === null) {
-      rotableInstance.current = new Draggable(artEl.current, {
-        type: 'rotation',
-        trigger: knobEl.current,
-        onPress: setDraggable,
-        zIndexBoost: false,
-      });
-    }
+    gsap.registerPlugin(CustomEase, CustomWiggle);
+    CustomWiggle.create('xEase', { type: 'uniform', wiggles: 20 });
+    CustomWiggle.create('yEase', { type: 'uniform', wiggles: 16 });
+    CustomWiggle.create('rotationEase', { type: 'uniform', wiggles: 14 });
+    const tl = gsap.timeline({ paused: true });
+    tl.to(rootEl.current, { x: '+=2', ease: 'xEase', duration: 0.5 });
+    tl.to(rootEl.current, { y: '+=3', ease: 'yEase', duration: 0.5 }, '<');
+    tl.to(
+      rootEl.current,
+      {
+        rotation: 2,
+        ease: 'rotationEase',
+        duration: 0.5,
+      },
+      '<',
+    );
+    tl.to(
+      rootEl.current,
+      {
+        color: activeColor,
+        rotate: 20,
+        duration: 1,
+        ease: 'elastic.out(1, 0.3)',
+      },
+      '>-0.2',
+    );
     if (active) {
-      draggableInstance.current.enable();
-      rotableInstance.current.enable();
-    } else {
-      onSelect(null);
-      draggableInstance.current.disable();
-      rotableInstance.current.disable();
+      tl.play();
     }
-  }, [active, onSelect, setDraggable]);
-
-  useClickOutside(
-    artEl,
-    useCallback(() => onSelect(null), [onSelect]),
-  );
+  }, [active, rootEl]);
 
   return (
     <div
-      ref={artEl}
+      ref={rootEl}
       className={classnames(
         className,
-        active && selected === artEl.current
+        active && selected === rootEl.current
           ? styles.selected
           : styles.container,
       )}
-      style={{ color: active ? activeColor || color : color }}
+      style={{ color }}
     >
       {children}
-      {active && selected === artEl.current && (
-        <div className={styles.knob} ref={knobEl} />
+      {active && (
+        <div
+          className={styles.knob}
+          ref={rotateEl}
+          style={{ display: selected === rootEl.current ? 'block' : 'none' }}
+        />
       )}
     </div>
   );

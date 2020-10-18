@@ -1095,11 +1095,6 @@
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.1.0.tgz#6c9eafc78c1529248f8f4d92b0799a712b6052c6"
   integrity sha512-i9YbZPN3QgfighY/1X1Pu118VUz2Fmmhd6b2n0/O8YVgGGfw0FbUYoA97k7FkpGJ+pLCFEDLUmAPPV4D1kpeFw==
 
-"@modulz/radix-icons@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@modulz/radix-icons/-/radix-icons-3.1.0.tgz#c8f0b3457fd4e0cc47dafea436d525eeb72e6993"
-  integrity sha512-excH405b7GDP5qm6vbwNpBQ+CAqSvcN4uLD6TUp5eIHWrxljEfwE56QusQf3NYAIcc/ec914ZS+HLlq1Rx2D2Q==
-
 "@next/env@9.5.6-canary.0":
   version "9.5.6-canary.0"
   resolved "https://registry.yarnpkg.com/@next/env/-/env-9.5.6-canary.0.tgz#2279b52abcd8c6699753b37ee61b4a3cc34aa5fb"
@@ -3211,8 +3206,8 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2:
 
 gsap@^3.5.1:
   version "3.5.1"
-  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.5.1.tgz#36cf76787d1758e749469d5e9cbe365c186544c4"
-  integrity sha512-EMV0RSUKZNeTUzLKAizGlwxVOUyif3/g8I3S1aA/hf3gbqwBvmQ02x1RdTBQNQMOpHCVBv9y/vaHwfctoAg8zw==
+  resolved "http://npm.greensock.com/@gsap%2fbusiness/-/gsap-3.5.1.tgz#4f0603e6c6e4cbf8c57c9e90bb911d69bd76b00d"
+  integrity sha512-r8MW9yxXhVIef6Ja4DA4yWoEfAvvO1BC0Iiy+QhR+35oKkj8evdMmUzrgD81EmpqLidX7ihOi9pu5OeeumvF2Q==
 
 has-flag@^3.0.0:
   version "3.0.0"

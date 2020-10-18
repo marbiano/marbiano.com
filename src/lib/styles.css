@@ -57,6 +57,11 @@ h1 {
 .tagline {
   font-family: 'Sentinel A', 'Sentinel B';
   font-style: italic;
+  font-size: 1.4rem;
+}
+
+.tagline {
+  display: none;
 }
 
 .cta {
@@ -68,4 +73,14 @@ h1 {
   color: rgba(255, 255, 255, 0.75);
   border-radius: 3px;
   cursor: pointer;
+  transition: background 200ms, color 200ms;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 1em 2em;
+}
+
+.cta:hover {
+  background: rgba(255, 255, 255, 1);
+  color: rgba(0, 0, 0, 0.8);
 }
