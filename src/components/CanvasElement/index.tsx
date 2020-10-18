@@ -47,7 +47,10 @@ const CanvasElement: React.FC<CanvasElementProps> = ({
       rootEl.current,
       {
         color: activeColor,
-        rotate: 20,
+        rotate:
+          (Math.random() < 0.5 ? -1 : 1) *
+            Math.floor(Math.random() * (30 - 5)) +
+          5,
         duration: 1,
         ease: 'elastic.out(1, 0.3)',
       },
