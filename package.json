@@ -1,0 +1,14 @@
+{
+  "name": "marbiano.com",
+  "private": true,
+  "workspaces": [
+    "site",
+    "studio"
+  ],
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  },
+  "scripts": {
+    "dev": "lerna run dev --parallel"
+  }
+}
