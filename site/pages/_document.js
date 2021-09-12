@@ -8,8 +8,19 @@ export default class Document extends NextDocument {
       <Html lang="en">
         <Head>
           <link
+            rel="preload"
+            href="/fonts/marbiano-regular.woff2"
+            as="font"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="preload"
+            href="/fonts/marbiano-bold.woff2"
+            as="font"
+            crossOrigin="anonymous"
+          />
+          <link
             rel="stylesheet"
-            type="text/css"
             href="https://cloud.typography.com/6916494/7728412/css/fonts.css"
           />
           <style
