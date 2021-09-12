@@ -3,6 +3,11 @@ import { useRouter } from 'next/router';
 import { getEntryBySlug } from '@lib/sanity/queries';
 import { fetchEntry, fetchEntriesSlugs } from '@lib/sanity/server';
 import { usePreviewSubscription } from '@lib/sanity/client';
+import { styled } from '@styles/stitches.config';
+
+const Title = styled('div', {
+  fontFamily: '$mono',
+});
 
 export default function EntryPage({ entry: initialEntry = {}, preview }) {
   const router = useRouter();
@@ -16,7 +21,7 @@ export default function EntryPage({ entry: initialEntry = {}, preview }) {
           <a href={`/api/exit-preview?slug=${entry?.slug}`}>Exit</a>
         </div>
       )}
-      {router.isFallback ? <div>Loading…</div> : <div>{entry.title}</div>}
+      <Title>{router.isFallback ? 'Loading…' : entry.title}</Title>
     </div>
   );
 }

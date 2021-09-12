@@ -20,6 +20,7 @@ export const {
     fonts: {
       sans: 'Marbiano, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
       serif: '"Sentinel A", "Sentinel B", serif',
+      mono: '"Marbiano Mono", monospace',
     },
   },
   utils: {

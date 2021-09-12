@@ -6,13 +6,19 @@ export default globalCss({
       fontFamily: 'Marbiano',
       fontWeight: '400',
       fontDisplay: 'swap',
-      src: 'url(/fonts/marbiano-regular.woff2) format("woff2"), url(/fonts/marbiano-regular.woff) format("woff")',
+      src: 'url(/fonts/marbiano-regular.woff2) format("woff2")',
     },
     {
       fontFamily: 'Marbiano',
       fontWeight: '700',
       fontDisplay: 'swap',
-      src: 'url(/fonts/marbiano-bold.woff2) format("woff2"), url(/fonts/marbiano-bold.woff) format("woff")',
+      src: 'url(/fonts/marbiano-bold.woff2) format("woff2")',
+    },
+    {
+      fontFamily: 'Marbiano Mono',
+      fontWeight: '400',
+      fontDisplay: 'swap',
+      src: 'url(/fonts/marbiano-mono.woff2) format("woff2")',
     },
   ],
   html: {

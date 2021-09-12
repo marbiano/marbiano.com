@@ -20,6 +20,12 @@ export default class Document extends NextDocument {
             crossOrigin="anonymous"
           />
           <link
+            rel="preload"
+            href="/fonts/marbiano-mono.woff2"
+            as="font"
+            crossOrigin="anonymous"
+          />
+          <link
             rel="stylesheet"
             href="https://cloud.typography.com/6916494/7728412/css/fonts.css"
           />
