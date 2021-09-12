@@ -1,50 +1,41 @@
 import * as React from 'react';
+import cx from 'classnames';
 
 import CanvasElement from '@components/CanvasElement';
-
-import styles from './styles.module.css';
-
-const logoParts = [
-  {
-    key: 'gimli',
-    component: <Gimli />,
-    className: styles.gimli,
-    activeColor: '#ff0532',
-  },
-  {
-    key: 'aragorn',
-    component: <Aragorn />,
-    className: styles.aragorn,
-    activeColor: '#054bff',
-  },
-  {
-    key: 'legolas',
-    component: <Legolas />,
-    className: styles.legolas,
-  },
-];
+import { css, styled } from '@styles/stitches.config';
 
 export default function Canvas({ artMode = false }) {
   const [selectedEl, setSelectedEl] = React.useState(null);
 
   return (
-    <div className={styles.logo}>
-      {logoParts.map((part) => (
-        <CanvasElement
-          key={part.key}
-          color="#ffdb05"
-          activeColor={part.activeColor}
-          active={artMode}
-          selected={selectedEl}
-          onSelect={setSelectedEl}
-          className={part.className}
-        >
-          {part.component}
-        </CanvasElement>
-      ))}
-    </div>
+    <Logo>
+      {logoParts.map((part) => {
+        const Component = part.component;
+        return (
+          <CanvasElement
+            key={part.key}
+            color="#ffdb05"
+            activeColor={part.activeColor}
+            active={artMode}
+            selected={selectedEl}
+            onSelect={setSelectedEl}
+            className={part.className}
+          >
+            <Component />
+          </CanvasElement>
+        );
+      })}
+    </Logo>
   );
 }
+
+const Logo = styled('div', {
+  display: 'flex',
+  alignItems: 'flex-end',
+  '--gimli-width': '43px',
+  '--gimli-to-aragorn-ratio': 3.217,
+  '--gimli-to-legolas-ratio': 1.63,
+});
 
 function Gimli() {
   return (
@@ -78,3 +69,69 @@ function Legolas() {
     </svg>
   );
 }
+
+const blockCss = css({
+  display: 'block',
+  color: '#ffdb05',
+  position: 'relative',
+  '& svg': {
+    width: '100%',
+    overflow: 'visible',
+  },
+});
+
+const gimliCss = css({
+  width: 'var(--gimli-width)',
+  transform: 'translate(1.5%, -0.75%)',
+  zIndex: 3,
+  '& [data-corner]': {
+    borderRadius: '50%',
+    background: 'rgba(3, 169, 244, 0.3)',
+    border: '1px solid rgba(3, 169, 244, 0.6)',
+    transition: 'background 0.1s ease-out',
+    width: 10,
+    height: 10,
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    '&:hover': {
+      background: 'rgba(3, 169, 244, 0.6)',
+    },
+  },
+});
+
+const aragornCss = css({
+  width: 'calc(var(--gimli-width) * var(--gimli-to-aragorn-ratio))',
+  transform: 'translate(-20%, 0)',
+  zIndex: 2,
+  '& svg': {
+    width: '100%',
+    overflow: 'visible',
+  },
+});
+
+const legolasCss = css({
+  width: 'calc(var(--gimli-width) * var(--gimli-to-legolas-ratio))',
+  transform: 'translate(1.5%, -1%)',
+  zIndex: 1,
+});
+
+const logoParts = [
+  {
+    key: 'gimli',
+    activeColor: '#ff0532',
+    className: cx(blockCss(), gimliCss()),
+    component: Gimli,
+  },
+  {
+    key: 'aragorn',
+    activeColor: '#054bff',
+    className: cx(blockCss(), aragornCss()),
+    component: Aragorn,
+  },
+  {
+    key: 'legolas',
+    className: cx(blockCss(), legolasCss()),
+    component: Legolas,
+  },
+];

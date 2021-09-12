@@ -5,8 +5,7 @@ import { CustomEase } from 'gsap/dist/CustomEase';
 import { CustomWiggle } from 'gsap/dist/CustomWiggle';
 
 import useCanvasElement from '@hooks/use-canvas-element';
-
-import styles from './styles.module.css';
+import { styled } from '@styles/stitches.config';
 
 export default function CanvasElement({
   color,
@@ -54,25 +53,49 @@ export default function CanvasElement({
     }
   }, [active, rootEl, activeColor]);
 
+  const isSelected = active && selected === rootEl.current;
+
   return (
-    <div
+    <Container
       ref={rootEl}
-      className={cx(
-        className,
-        active && selected === rootEl.current
-          ? styles.selected
-          : styles.container,
-      )}
+      className={className}
       style={{ color }}
+      selected={isSelected}
     >
       {children}
-      {active && (
-        <div
-          className={styles.knob}
-          ref={rotateEl}
-          style={{ display: selected === rootEl.current ? 'block' : 'none' }}
-        />
-      )}
-    </div>
+      {active && <Knob ref={rotateEl} visible={isSelected} />}
+    </Container>
   );
 }
+
+const Container = styled('div', {
+  border: '1px dashed transparent',
+  position: 'relative',
+  variants: {
+    selected: {
+      true: {
+        borderColor: 'rgba(255, 255, 255, 0.5)',
+      },
+    },
+  },
+});
+
+const Knob = styled('div', {
+  width: 12,
+  height: 12,
+  background: '#aca682',
+  border: '1px solid $white',
+  position: 'absolute',
+  top: 0,
+  right: 0,
+  zIndex: 100,
+  transform: 'translate(50%, -50%)',
+  display: 'none',
+  variants: {
+    visible: {
+      true: {
+        display: 'block',
+      },
+    },
+  },
+});

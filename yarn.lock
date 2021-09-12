@@ -2830,6 +2830,11 @@
     "@sanity/util" "2.18.0"
     loader-utils "1.1.0"
 
+"@stitches/react@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@stitches/react/-/react-1.1.0.tgz#49342e085528d689b983682e112b79c5a0b0efb4"
+  integrity sha512-g1XZsmB3tFL5i9aaBx0+P4C83j3vf/PEmLc5e9PlumE5c6q3zsdbbOVr4ZC52eGm4MCvM+2bbAJ++rtTUa6ahw==
+
 "@tootallnate/once@1":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
@@ -6996,10 +7001,15 @@ groq@^2.0.9, groq@^2.14.0:
   resolved "https://registry.yarnpkg.com/groq/-/groq-2.15.0.tgz#d5618e0424c866a7998722d6ed441b3cc97e8de3"
   integrity sha512-V3VLBLftaEylbeXDwb2VoGa87SFLGLbU9h6Lz7vuZK+wcs4Kk92qG3A8nWtsdCp63hYKft0/AaXuanbkch0GeA==
 
-gsap@^3.7.1:
+gsap@:
   version "3.7.1"
   resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.7.1.tgz#1c5857f4fbcbd3f5ca0b513ef7abf828fbaa20a8"
   integrity sha512-4qxuaC2yFWRjMRof5tI/7c9/+L4xMsCoqHrZAmuh+IbOokTnZyoeF0VgvcVHq3uo+/VJZCs7PTvjrFasfGl+ww==
+
+"gsap@npm:@gsap/business":
+  version "3.7.1"
+  resolved "https://npm.greensock.com/@gsap%2fbusiness/-/business-3.7.1.tgz#247f6c0196d305115eab6f66c2ed533988e4c106"
+  integrity sha512-xypg0rMMMi5hzyPNFPAIxXRnIw8365AnS5hwnPIlIl/MFw5ZziFL498CgQSMg9dsNnrb1uFR2oHRLofGZ3Cmdw==
 
 gunzip-maybe@^1.4.1:
   version "1.4.2"
