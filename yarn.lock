@@ -6946,6 +6946,11 @@ groq@^2.0.9, groq@^2.14.0:
   resolved "https://registry.yarnpkg.com/groq/-/groq-2.15.0.tgz#d5618e0424c866a7998722d6ed441b3cc97e8de3"
   integrity sha512-V3VLBLftaEylbeXDwb2VoGa87SFLGLbU9h6Lz7vuZK+wcs4Kk92qG3A8nWtsdCp63hYKft0/AaXuanbkch0GeA==
 
+"gsap@npm:@gsap/business":
+  version "3.7.1"
+  resolved "https://npm.greensock.com/@gsap%2fbusiness/-/business-3.7.1.tgz#247f6c0196d305115eab6f66c2ed533988e4c106"
+  integrity sha512-xypg0rMMMi5hzyPNFPAIxXRnIw8365AnS5hwnPIlIl/MFw5ZziFL498CgQSMg9dsNnrb1uFR2oHRLofGZ3Cmdw==
+
 gunzip-maybe@^1.4.1:
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/gunzip-maybe/-/gunzip-maybe-1.4.2.tgz#b913564ae3be0eda6f3de36464837a9cd94b98ac"
