@@ -1,6 +1,0 @@
-11 error TypeError: Cannot read property 'replace' of null
-11 error     at /Users/marbiano/dev/marbiano/marbiano.com/node_modules/@lerna/package-graph/index.js:65:49
-11 error     at Array.forEach (<anonymous>)
-11 error     at /Users/marbiano/dev/marbiano/marbiano.com/node_modules/@lerna/package-graph/index.js:60:38
-11 error     at Map.forEach (<anonymous>)
-11 error     at new PackageGraph (/Users/marbiano/dev/marbiano/marbiano.com/node_modules/@lerna/package-graph/index.js:49:10)
