@@ -1,5 +1,8 @@
 import * as React from 'react';
 import { gsap } from 'gsap';
+
+import { styled } from '@styles/stitches.config';
+
 import Canvas from '@components/Canvas';
 import SiteHead from '@components/SiteHead';
 
@@ -29,25 +32,69 @@ export default function HomePage() {
   return (
     <>
       <SiteHead title="Martin Bavio, web developer." />
-      <div className="container">
+      <Container>
         <Canvas artMode={artMode} />
-        <h1 ref={titleRef}>
-          <span className="name">Martin Bavio</span>
-          <span className="role">, web developer.</span>
-        </h1>
-        <div className="tagline" ref={tagLineRef}>
-          what can you do with less?
-        </div>
+        <Heading ref={titleRef}>
+          <Name>Martin Bavio</Name>
+          <Role>, web developer.</Role>
+        </Heading>
+        <Tagline ref={tagLineRef}>what can you do with less?</Tagline>
         {!artMode && (
-          <button
-            type="button"
-            onClick={() => setArtMode(!artMode)}
-            className="cta"
-          >
+          <Button type="button" onClick={() => setArtMode(!artMode)}>
             Play
-          </button>
+          </Button>
         )}
-      </div>
+      </Container>
     </>
   );
 }
+
+const Container = styled('div', {
+  width: '100vw',
+  height: '100vh',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+});
+
+const Heading = styled('h1', {
+  fontWeight: '400',
+  fontSize: '1.4rem',
+  margin: '3rem 0 0',
+});
+
+const Name = styled('span', {
+  fontWeight: 'bold',
+});
+
+const Role = styled('span', {
+  fontFamily: '$serif',
+  fontStyle: 'italic',
+  fontSize: '1.4rem',
+});
+
+const Tagline = styled(Role, {
+  display: 'none',
+});
+
+const Button = styled('button', {
+  display: 'block',
+  position: 'absolute',
+  top: '1rem',
+  right: '1rem',
+  background: 'rgba(255, 255, 255, 0.05)',
+  border: '1px solid rgba(255, 255, 255, 0.5)',
+  color: 'rgba(255, 255, 255, 0.75)',
+  borderRadius: '3px',
+  cursor: 'pointer',
+  transition: 'background 200ms, color 200ms',
+  textTransform: 'uppercase',
+  letterSpacing: '0.1em',
+  padding: '1em 2em',
+
+  '&:hover': {
+    background: 'rgba(255, 255, 255, 1)',
+    color: 'rgba(0, 0, 0, 0.8)',
+  },
+});
