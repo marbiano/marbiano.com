@@ -42,8 +42,14 @@ export default function HomePage() {
       <Container>
         <Canvas artMode={artMode} />
         <Heading ref={titleRef}>
-          <Name>Martin Bavio</Name>
-          {role && <Role>, {role}.</Role>}
+          <Name as="a" href="https://twitter.com/marbiano3">
+            Martin Bavio
+          </Name>
+          {role && (
+            <Role>
+              , <span>{role}</span>.
+            </Role>
+          )}
         </Heading>
         <Tagline ref={tagLineRef}>what can you do with less?</Tagline>
         {!artMode && (
@@ -72,17 +78,29 @@ const Heading = styled('h1', {
 });
 
 const Name = styled('span', {
-  fontWeight: 'bold',
+  textDecoration: 'none',
+  color: '$white',
+  display: 'inline-block',
+  padding: '3px',
+  '&:hover': {
+    color: '#00acee',
+  },
 });
 
 const Role = styled('span', {
   fontFamily: '$serif',
   fontStyle: 'italic',
   fontSize: '1.4rem',
+  color: 'rgba(255, 255, 255, .75)',
+  '& span': {
+    display: 'inline-block',
+    paddingLeft: '2px',
+  },
 });
 
 const Tagline = styled(Role, {
   display: 'none',
+  zIndex: '-1',
 });
 
 const Button = styled('button', {
