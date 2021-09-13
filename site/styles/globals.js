@@ -28,8 +28,8 @@ export default globalCss({
     boxSizing: 'inherit',
   },
   body: {
-    background: '$black',
-    color: '$white',
+    background: '#e5e5e5',
+    color: '$black',
     margin: 0,
     padding: 0,
     fontFamily: '$sans',

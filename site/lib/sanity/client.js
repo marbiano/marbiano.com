@@ -12,5 +12,4 @@ export const usePreviewSubscription = createPreviewSubscriptionHook(config);
 
 export const PortableText = createPortableTextComponent({
   ...config,
-  serializers: {},
 });

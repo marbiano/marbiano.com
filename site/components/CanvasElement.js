@@ -1,5 +1,4 @@
 import * as React from 'react';
-import cx from 'classnames';
 import { gsap } from 'gsap';
 import { CustomEase } from 'gsap/dist/CustomEase';
 import { CustomWiggle } from 'gsap/dist/CustomWiggle';

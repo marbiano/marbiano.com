@@ -1,28 +1,119 @@
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import { getEntryBySlug } from '@lib/sanity/queries';
 import { fetchEntry, fetchEntriesSlugs } from '@lib/sanity/server';
-import { usePreviewSubscription } from '@lib/sanity/client';
+import { usePreviewSubscription, PortableText } from '@lib/sanity/client';
 import { styled } from '@styles/stitches.config';
+import useEntries, { EntriesProvider } from '@hooks/use-entries';
+import Logo from '@components/Logo';
+import Cover from '@components/Cover';
+import EntryLink from '@components/EntryLink';
 
-const Title = styled('div', {
-  fontFamily: '$mono',
+const StyledLogo = styled(Logo, {
+  width: 33,
+  color: '$white',
+  '&:hover': {
+    color: 'rgb(255, 219, 5)',
+  },
 });
+
+const Fixed = styled('div', {
+  position: 'fixed',
+  top: 'var(--fixed-top, 10px)',
+  left: 'var(--fixed-left, 10px)',
+});
+
+const Absolute = styled('div', {
+  position: 'absolute',
+  top: 'var(--fixed-top, 10px)',
+  left: 'var(--fixed-left, 10px)',
+});
+
+const Title = styled('h1', {
+  fontFamily: '$serif',
+  fontWeight: 'normal',
+  fontStyle: 'italic',
+  fontSize: '44px',
+  position: 'relative',
+  color: '$black',
+  marginTop: '240px',
+  marginLeft: '220px',
+  marginBottom: '70px',
+});
+
+const Body = styled('div', {
+  display: 'flex',
+  gap: '25px',
+});
+
+const Content = styled('div', {
+  fontSize: '19px',
+  fontFamily: '$sans',
+  lineHeight: '1.66',
+  maxWidth: '44em',
+  background: 'rgba(255, 255, 255, 1)',
+  position: 'relative',
+  marginLeft: '180px',
+  marginBottom: '100px',
+  padding: '3em 8em 3em 4em',
+  borderRadius: '2px',
+});
+
+const Box = styled('div', {
+  fontSize: '16px',
+  fontFamily: '$sans',
+  lineHeight: '1.66',
+  width: '30em',
+  background: 'rgba(255, 255, 255, .8)',
+  position: 'relative',
+  marginBottom: '25px',
+  padding: '2rem 3rem',
+  borderRadius: '2px',
+
+  '& h2': {
+    fontSize: '20px',
+    marginTop: 0,
+  },
+});
+
+const serializers = {
+  marks: {
+    entryLink: EntryLink,
+  },
+};
 
 export default function EntryPage({ entry: initialEntry = {}, preview }) {
   const router = useRouter();
   const entry = _useSanityEntry(initialEntry, preview);
 
   return (
-    <div>
-      {preview && (
+    <EntriesProvider>
+      <div>
+        <Link href="/" passHref>
+          <Fixed
+            style={{ '--fixed-top': '20px', '--fixed-left': '20px', zIndex: 4 }}
+            as="a"
+          >
+            <StyledLogo />
+          </Fixed>
+        </Link>
+        <Title>{router.isFallback ? 'Loading…' : entry.title}</Title>
+        <Body>
+          <Content>
+            <PortableText blocks={entry.body} serializers={serializers} />
+          </Content>
+          <LinkedEntries />
+        </Body>
+
+        {/* {preview && (
         <div>
           Preview mode{' '}
           <a href={`/api/exit-preview?slug=${entry?.slug}`}>Exit</a>
         </div>
-      )}
-      <Title>{router.isFallback ? 'Loading…' : entry.title}</Title>
-    </div>
+      )} */}
+      </div>
+    </EntriesProvider>
   );
 }
 
@@ -36,6 +127,24 @@ function _useSanityEntry(initialEntry, preview) {
   });
 
   return data;
+}
+
+function LinkedEntries() {
+  const { entries } = useEntries();
+  if (entries.length === 0) {
+    return null;
+  }
+
+  return (
+    <div>
+      {entries.map((entry) => (
+        <Box key={entry._id}>
+          <h2>{entry.title}</h2>
+          <PortableText blocks={entry.preview} />
+        </Box>
+      ))}
+    </div>
+  );
 }
 
 export async function getStaticProps({ params, preview = false }) {
