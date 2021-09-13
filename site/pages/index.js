@@ -36,7 +36,7 @@ export default function HomePage() {
         <Canvas artMode={artMode} />
         <Heading ref={titleRef}>
           <Name>Martin Bavio</Name>
-          <Role>, web developer.</Role>
+          <Role>, UI Engineer.</Role>
         </Heading>
         <Tagline ref={tagLineRef}>what can you do with less?</Tagline>
         {!artMode && (
