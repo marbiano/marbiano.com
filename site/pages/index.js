@@ -6,10 +6,17 @@ import { styled } from '@styles/stitches.config';
 import Canvas from '@components/Canvas';
 import SiteHead from '@components/SiteHead';
 
+const ROLES = ['web developer', 'UI Engineer', 'frontend nerd'];
+
 export default function HomePage() {
   const [artMode, setArtMode] = React.useState(false);
+  const [role, setRole] = React.useState('');
   const titleRef = React.useRef(null);
   const tagLineRef = React.useRef(null);
+
+  React.useEffect(() => {
+    setRole(ROLES[Math.floor(Math.random() * ROLES.length)]);
+  }, []);
 
   React.useEffect(() => {
     const tl = gsap.timeline({ paused: true, delay: 0.2 });
@@ -36,7 +43,7 @@ export default function HomePage() {
         <Canvas artMode={artMode} />
         <Heading ref={titleRef}>
           <Name>Martin Bavio</Name>
-          <Role>, UI Engineer.</Role>
+          {role && <Role>, {role}.</Role>}
         </Heading>
         <Tagline ref={tagLineRef}>what can you do with less?</Tagline>
         {!artMode && (
