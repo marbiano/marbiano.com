@@ -32,9 +32,9 @@ const Absolute = styled('div', {
 
 const Title = styled('h1', {
   fontFamily: '$serif',
-  fontWeight: 'normal',
+  fontWeight: '300',
   fontStyle: 'italic',
-  fontSize: '44px',
+  fontSize: '52px',
   position: 'relative',
   color: '$black',
   marginTop: '240px',
@@ -50,14 +50,18 @@ const Body = styled('div', {
 const Content = styled('div', {
   fontSize: '19px',
   fontFamily: '$sans',
-  lineHeight: '1.66',
+  lineHeight: '1.75',
   maxWidth: '44em',
   background: 'rgba(255, 255, 255, 1)',
   position: 'relative',
   marginLeft: '180px',
-  marginBottom: '100px',
-  padding: '3em 8em 3em 4em',
+  // marginBottom: '100px',
+  padding: '3em 8em 5em 4em',
   borderRadius: '2px',
+  '& a': {
+    color: '#0f71e3',
+    textDecoration: 'none',
+  },
 });
 
 const Box = styled('div', {
@@ -72,8 +76,9 @@ const Box = styled('div', {
   borderRadius: '2px',
 
   '& h2': {
-    fontSize: '20px',
+    fontSize: '21px',
     marginTop: 0,
+    fontWeight: '400',
   },
 });
 

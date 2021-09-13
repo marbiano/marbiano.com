@@ -28,7 +28,8 @@ export default globalCss({
     boxSizing: 'inherit',
   },
   body: {
-    background: '#e5e5e5',
+    background: 'linear-gradient(to bottom, hsl(0 0% 90%), hsl(0 0% 84%))',
+    backgroundAttachment: 'fixed',
     color: '$black',
     margin: 0,
     padding: 0,
