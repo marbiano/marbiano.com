@@ -6,7 +6,7 @@ export default function EntryLink({ mark, children }) {
   const { setEntries } = useEntries();
 
   async function handleClick(e) {
-    if (!e.metaKey) {
+    if (!e.metaKey && !e.altKey) {
       return;
     }
 
