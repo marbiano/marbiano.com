@@ -11,7 +11,10 @@ const entryFields = groq`
     markDefs[]{
       ...,
       _type == "entryLink" => {
+        "title": @.entry->title,
         "slug": @.entry->slug.current,
+        "body": @.entry->preview
+
       }
     }
   }

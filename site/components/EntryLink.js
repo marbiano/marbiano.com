@@ -1,9 +1,14 @@
-import useEntries from '@hooks/use-entries';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 
+import useEntries from '@hooks/use-entries';
+
 export default function EntryLink({ mark, children }) {
-  const { slug, preview } = mark;
+  const router = useRouter();
+  const { slug, preview, title, body } = mark;
   const { setEntries } = useEntries();
+
+  const url = `/api/entries/${slug}${preview ? '?preview=1' : ''}`;
 
   async function handleClick(e) {
     if (!e.metaKey && !e.altKey) {
@@ -11,15 +16,27 @@ export default function EntryLink({ mark, children }) {
     }
 
     e.preventDefault();
-    const url = `/api/entries/${slug}${preview ? '?preview=1' : ''}`;
-    const res = await fetch(url);
-    const { entry } = await res.json();
+    const entry = {
+      title,
+      body,
+    };
     setEntries((prevEntries) => [...prevEntries, entry]);
+  }
+
+  function handleHover(e) {
+    if (!e.metaKey && !e.altKey) {
+      return;
+    }
+
+    router.prefetch('/');
+    router.prefetch(url);
   }
 
   return (
     <Link href={`/entries/${slug}`}>
-      <a onClick={handleClick}>{children}</a>
+      <a onClick={handleClick} onMouseEnter={handleHover}>
+        {children}
+      </a>
     </Link>
   );
 }

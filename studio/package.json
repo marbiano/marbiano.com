@@ -3,23 +3,23 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "sanity start",
+    "dev": "sanity start --port=4000",
     "build": "sanity build"
   },
   "dependencies": {
-    "@sanity/base": "^2.18.0",
+    "@sanity/base": "^2.19.0",
     "@sanity/components": "^2.14.0",
-    "@sanity/core": "^2.18.0",
-    "@sanity/default-layout": "^2.18.0",
-    "@sanity/default-login": "^2.18.0",
-    "@sanity/desk-tool": "^2.18.0",
+    "@sanity/core": "^2.19.2",
+    "@sanity/default-layout": "^2.19.0",
+    "@sanity/default-login": "^2.19.0",
+    "@sanity/desk-tool": "^2.19.0",
     "@sanity/production-preview": "^2.15.0",
-    "@sanity/vision": "^2.17.2",
+    "@sanity/vision": "^2.19.0",
     "prop-types": "^15.7",
     "react": "^17.0",
     "react-dom": "^17.0",
     "react-icons": "^4.2.0",
-    "sanity-plugin-color-picker": "^1.0.3"
-  },
-  "devDependencies": {}
+    "sanity-plugin-color-picker": "^1.0.3",
+    "styled-components": "^5.3.1"
+  }
 }

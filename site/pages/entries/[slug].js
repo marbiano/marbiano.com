@@ -145,7 +145,7 @@ function LinkedEntries() {
       {entries.map((entry) => (
         <Box key={entry._id}>
           <h2>{entry.title}</h2>
-          <PortableText blocks={entry.preview} />
+          <PortableText blocks={entry.body} />
         </Box>
       ))}
     </div>
