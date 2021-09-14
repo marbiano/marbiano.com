@@ -14,7 +14,7 @@ const StyledLogo = styled(Logo, {
   width: 33,
   color: '$white',
   '&:hover': {
-    color: 'rgb(255, 219, 5)',
+    color: '#E84F06',
   },
 });
 
@@ -34,34 +34,68 @@ const Title = styled('h1', {
   fontFamily: '$serif',
   fontWeight: '300',
   fontStyle: 'italic',
-  fontSize: '52px',
+  fontSize: '46px',
+  letterSpacing: '-0.02em',
+  lineHeight: '1',
   position: 'relative',
   color: '$black',
   marginTop: '240px',
-  marginLeft: '220px',
-  marginBottom: '70px',
+  marginLeft: '180px',
+  marginBottom: 0,
+  marginBottom: '20px',
+  position: 'relative',
+  '&:before': {
+    content: '',
+    display: 'block',
+    position: 'absolute',
+    top: '-40px',
+    left: '0',
+    borderTop: '8px solid #E84F06',
+    width: '36px',
+  },
+});
+
+const Meta = styled('div', {
+  fontSize: '13px',
+  marginLeft: '180px',
+  marginBottom: '50px',
+  color: 'rgba(0, 0, 0, .5)',
 });
 
 const Body = styled('div', {
   display: 'flex',
   gap: '25px',
+  // overflowX: 'scroll',
+  // marginRight: '10px',
 });
 
 const Content = styled('div', {
-  fontSize: '19px',
+  flex: '0 1 45em',
+  fontSize: '18px',
   fontFamily: '$sans',
   lineHeight: '1.75',
-  maxWidth: '44em',
   background: 'rgba(255, 255, 255, 1)',
+  color: 'rgba(0, 0, 0, .8)',
   position: 'relative',
-  marginLeft: '180px',
-  // marginBottom: '100px',
-  padding: '3em 8em 5em 4em',
+  marginLeft: '140px',
+  padding: '3em 9em 5em 5em',
   borderRadius: '2px',
   '& a': {
     color: '#0f71e3',
     textDecoration: 'none',
   },
+});
+
+const Grid = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  flexWrap: 'wrap',
+  gap: '25px',
+  height: 'auto',
+  maxHeight: '100vh',
+  alignContent: 'flex-start',
+  position: 'sticky',
+  top: '25px',
 });
 
 const Box = styled('div', {
@@ -71,7 +105,6 @@ const Box = styled('div', {
   width: '30em',
   background: 'rgba(255, 255, 255, .8)',
   position: 'relative',
-  marginBottom: '25px',
   padding: '2rem 3rem',
   borderRadius: '2px',
 
@@ -104,6 +137,7 @@ export default function EntryPage({ entry: initialEntry = {}, preview }) {
           </Fixed>
         </Link>
         <Title>{router.isFallback ? 'Loading…' : entry.title}</Title>
+        <Meta>Last Edited: July 16, 2021 – Viewed by 1.2M people</Meta>
         <Body>
           <Content>
             <PortableText blocks={entry.body} serializers={serializers} />
@@ -141,14 +175,14 @@ function LinkedEntries() {
   }
 
   return (
-    <div>
+    <Grid>
       {entries.map((entry) => (
         <Box key={entry._id}>
           <h2>{entry.title}</h2>
           <PortableText blocks={entry.body} />
         </Box>
       ))}
-    </div>
+    </Grid>
   );
 }
 
