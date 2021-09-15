@@ -1,8 +1,6 @@
+// https://github.com/gregberge/svgr/issues/551#issuecomment-839772396
+
 module.exports = {
-  reactStrictMode: true,
-  images: {
-    domains: ['cdn.sanity.io'],
-  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
@@ -13,10 +11,8 @@ module.exports = {
           options: {
             prettier: false,
             svgo: true,
-            dimensions: false,
             svgoConfig: { plugins: [{ removeViewBox: false }] },
             titleProp: true,
-            replaceAttrValues: { '#000': 'currentColor' },
           },
         },
       ],
