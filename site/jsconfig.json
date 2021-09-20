@@ -1,13 +1,19 @@
 {
   "compilerOptions": {
-    "target": "esnext",
     "baseUrl": ".",
+    "checkJs": true,
+    "target": "esnext",
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
     "paths": {
-      "@pages/*": ["pages/*"],
-      "@components/*": ["components/*"],
-      "@hooks/*": ["hooks/*"],
-      "@lib/*": ["lib/*"],
-      "@styles/*": ["styles/*"]
+      "@assets/*": ["src/assets/*"],
+      "@components/*": ["src/components/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@pages/*": ["src/pages/*"],
+      "@screens/*": ["src/screens/*"],
+      "@styles/*": ["src/styles/*"],
+      "@lib/*": ["lib/*"]
     }
-  }
+  },
+  "exclude": ["node_modules", ".next", "public"]
 }

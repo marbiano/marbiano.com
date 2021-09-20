@@ -80,6 +80,31 @@ export default {
           marks: {
             annotations: [link, entryLink],
           },
+          styles: [
+            { title: 'Normal', value: 'normal' },
+            { title: 'H2', value: 'h2' },
+            { title: 'H3', value: 'h3' },
+            { title: 'Quote', value: 'blockquote' },
+          ],
+        },
+        {
+          type: 'image',
+          fields: [
+            {
+              name: 'alt',
+              type: 'string',
+              title: 'Alt',
+              options: {
+                isHighlighted: true,
+              },
+            },
+          ],
+        },
+        {
+          type: 'codeBlock',
+        },
+        {
+          type: 'youtubeEmbed',
         },
       ],
       validation: (rule) => rule.required(),
