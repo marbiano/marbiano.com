@@ -79,7 +79,7 @@ const Heading = styled('h1', {
 
 const Name = styled('span', {
   textDecoration: 'none',
-  color: '$white',
+  color: '$black90',
   display: 'inline-block',
   padding: '3px',
   '&:hover': {
@@ -91,7 +91,7 @@ const Role = styled('span', {
   fontFamily: '$serif',
   fontStyle: 'italic',
   fontSize: '1.4rem',
-  color: 'rgba(255, 255, 255, .75)',
+  color: '$black75',
   '& span': {
     display: 'inline-block',
     paddingLeft: '2px',
@@ -108,9 +108,9 @@ const Button = styled('button', {
   position: 'absolute',
   top: '1rem',
   right: '1rem',
-  background: 'rgba(255, 255, 255, 0.05)',
-  border: '1px solid rgba(255, 255, 255, 0.5)',
-  color: 'rgba(255, 255, 255, 0.75)',
+  background: '$white',
+  color: '$black75',
+  border: 0,
   borderRadius: '3px',
   cursor: 'pointer',
   transition: 'background 200ms, color 200ms',
@@ -119,7 +119,7 @@ const Button = styled('button', {
   padding: '1em 2em',
 
   '&:hover': {
-    background: 'rgba(255, 255, 255, 1)',
-    color: 'rgba(0, 0, 0, 0.8)',
+    background: '$black',
+    color: '$white',
   },
 });

@@ -14,7 +14,7 @@ export default function Canvas({ artMode = false }) {
         return (
           <CanvasElement
             key={part.key}
-            color="#ffdb05"
+            color="#db5014"
             activeColor={part.activeColor}
             active={artMode}
             selected={selectedEl}
@@ -119,18 +119,19 @@ const legolasCss = css({
 const logoParts = [
   {
     key: 'gimli',
-    activeColor: '#ff0532',
+    activeColor: '#71B773',
     className: cx(blockCss(), gimliCss()),
     component: Gimli,
   },
   {
     key: 'aragorn',
-    activeColor: '#054bff',
+    activeColor: '#127FDE',
     className: cx(blockCss(), aragornCss()),
     component: Aragorn,
   },
   {
     key: 'legolas',
+    activeColor: '#DF6401',
     className: cx(blockCss(), legolasCss()),
     component: Legolas,
   },

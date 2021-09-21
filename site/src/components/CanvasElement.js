@@ -73,7 +73,7 @@ const Container = styled('div', {
   variants: {
     selected: {
       true: {
-        borderColor: 'rgba(255, 255, 255, 0.5)',
+        borderColor: '$black50',
       },
     },
   },
@@ -82,7 +82,7 @@ const Container = styled('div', {
 const Knob = styled('div', {
   width: 12,
   height: 12,
-  background: '#aca682',
+  background: '$black50',
   border: '1px solid $white',
   position: 'absolute',
   top: 0,
