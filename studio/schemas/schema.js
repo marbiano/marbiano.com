@@ -6,6 +6,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type';
 import entry from './entry';
 import codeBlock from './objects/code-block';
 import youtubeEmbed from './objects/youtube-embed';
+import quote from './objects/quote';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -19,5 +20,6 @@ export default createSchema({
     // Additional objects
     codeBlock,
     youtubeEmbed,
+    quote,
   ]),
 });

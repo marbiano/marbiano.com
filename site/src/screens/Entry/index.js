@@ -6,8 +6,10 @@ import { grid, gridUnit, rem } from '@styles/tokens';
 import LogoSvg from '@assets/logo.svg';
 import Paper from '@components/Paper';
 import Notes from '@components/Notes';
+import { motion } from 'framer-motion';
 
 export default function Entry({ entry }) {
+  const lastEdited = new Date(entry.updatedAt);
   return (
     <NotesProvider>
       <Layout>
@@ -18,10 +20,23 @@ export default function Entry({ entry }) {
         </Link>
         <Header>
           <Title>{entry.title}</Title>
-          <Meta>
-            <li>Last Edited: July 16, 2021</li>
-            <li>Viewed by 1.2M people</li>
-          </Meta>
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
+            <Meta>
+              <li>
+                Published on{' '}
+                {lastEdited.toLocaleDateString('en-US', {
+                  month: 'long',
+                  year: 'numeric',
+                  day: 'numeric',
+                })}
+              </li>
+              <li>Viewed 1,264 times</li>
+            </Meta>
+          </motion.div>
         </Header>
         <Paper body={entry.body} />
         <Notes />
@@ -37,7 +52,7 @@ const Logo = styled('a', {
   top: '1rem',
   left: '1rem',
   '&:hover': {
-    color: '$orange',
+    color: '$black',
   },
 });
 
@@ -91,13 +106,13 @@ const Layout = styled('div', {
 
 const Title = styled('h1', {
   fontFamily: '$serif',
-  fontSize: rem(46),
+  fontSize: rem(44),
   fontWeight: '300',
   fontStyle: 'italic',
   letterSpacing: '-0.025em',
   lineHeight: 1,
   position: 'relative',
-  color: '$black',
+  color: '$black90',
   marginBottom: '1.33rem',
 
   '&:before': {
@@ -113,7 +128,7 @@ const Title = styled('h1', {
 
 const Meta = styled('ul', {
   fontSize: 14,
-  color: '$black40',
+  color: '$black50',
   listStyle: 'none',
   padding: 0,
   margin: 0,
@@ -131,8 +146,9 @@ const Meta = styled('ul', {
       display: 'block',
       width: '0.5em',
       height: '0.5em',
-      background: '$black10',
+      background: '$black20',
       marginLeft: '0.5em',
+      marginTop: 2,
     },
   },
 });

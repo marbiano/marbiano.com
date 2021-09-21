@@ -84,7 +84,6 @@ export default {
             { title: 'Normal', value: 'normal' },
             { title: 'H2', value: 'h2' },
             { title: 'H3', value: 'h3' },
-            { title: 'Quote', value: 'blockquote' },
           ],
         },
         {
@@ -105,6 +104,9 @@ export default {
         },
         {
           type: 'youtubeEmbed',
+        },
+        {
+          type: 'quote',
         },
       ],
       validation: (rule) => rule.required(),

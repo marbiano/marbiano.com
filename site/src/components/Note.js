@@ -16,7 +16,10 @@ const Container = styled('div', {
   color: '$black75',
 
   '& a': {
-    color: '$blue',
+    color: '$paleBlue',
+    '&:hover': {
+      color: '$blue',
+    },
   },
 });
 
@@ -37,14 +40,14 @@ const CloseAction = styled('button', {
 const CloseIcon = styled(Close, {
   width: 28,
   padding: 8,
-  color: 'hsl(208 35% 47% / 0.5)',
+  color: '$black30',
   background: 'transparent',
   borderRadius: 3,
-  transition: 'all 200ms ease-out',
+  transition: 'all 200ms',
 
   '&:hover': {
-    color: 'hsl(208 85% 47% / 1)',
-    background: 'hsl(208 37% 62% / 0.1)',
+    color: '$black75',
+    background: '$lightGreen30',
   },
 });
 
@@ -52,11 +55,12 @@ const Title = styled('h2', {
   margin: 0,
   fontSize: rem(21),
   fontWeight: '700',
-  color: '$black30',
+  color: '$lightGreen',
   cursor: 'pointer',
+  flex: 1,
 
   '&.is-expanded': {
-    color: '$black85',
+    color: '$black75',
   },
 });
 

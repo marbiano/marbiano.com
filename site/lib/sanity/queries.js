@@ -6,6 +6,7 @@ const entryFields = groq`
   tagline,
   "cover": cover.image,
   "slug": slug.current,
+  'updatedAt': _updatedAt,
   body[]{
     ...,
     markDefs[]{
