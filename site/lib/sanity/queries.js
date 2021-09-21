@@ -4,7 +4,21 @@ const entryFields = groq`
   _id,
   title,
   tagline,
+  "cover": cover.image,
   "slug": slug.current,
+  'updatedAt': _updatedAt,
+  body[]{
+    ...,
+    markDefs[]{
+      ...,
+      _type == "entryLink" => {
+        "title": @.entry->title,
+        "slug": @.entry->slug.current,
+        "body": @.entry->preview
+
+      }
+    }
+  }
 `;
 
 export const getEntriesSlugs = groq`
@@ -20,5 +34,13 @@ export const getEntryBySlug = groq`
 export const getEntriesBySlug = groq`
   *[_type == "entry" && slug.current == $slug] {
     ${entryFields}
+  }
+`;
+
+export const getEntriesPreviewsBySlug = groq`
+  *[_type == "entry" && slug.current == $slug] {
+    _id,
+    title,
+    preview
   }
 `;

@@ -10,11 +10,14 @@
     "@sanity/default-login",
     "@sanity/desk-tool",
     "color-picker",
-    "@sanity/production-preview"
+    "@sanity/production-preview",
+    "@sanity/code-input"
   ],
   "env": {
     "development": {
-      "plugins": ["@sanity/vision"]
+      "plugins": [
+        "@sanity/vision"
+      ]
     }
   },
   "parts": [

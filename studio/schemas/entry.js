@@ -50,6 +50,16 @@ export default {
           options: {
             hotspot: true,
           },
+          fields: [
+            {
+              name: 'alt',
+              type: 'string',
+              title: 'Alt',
+              options: {
+                isHighlighted: true,
+              },
+            },
+          ],
           hidden: ({ parent }) => parent.type === 'solid',
         },
         {
@@ -70,6 +80,33 @@ export default {
           marks: {
             annotations: [link, entryLink],
           },
+          styles: [
+            { title: 'Normal', value: 'normal' },
+            { title: 'H2', value: 'h2' },
+            { title: 'H3', value: 'h3' },
+          ],
+        },
+        {
+          type: 'image',
+          fields: [
+            {
+              name: 'alt',
+              type: 'string',
+              title: 'Alt',
+              options: {
+                isHighlighted: true,
+              },
+            },
+          ],
+        },
+        {
+          type: 'codeBlock',
+        },
+        {
+          type: 'youtubeEmbed',
+        },
+        {
+          type: 'quote',
         },
       ],
       validation: (rule) => rule.required(),

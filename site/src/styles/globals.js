@@ -1,3 +1,4 @@
+// @ts-check
 import { globalCss } from './stitches.config';
 
 export default globalCss({
@@ -28,12 +29,12 @@ export default globalCss({
     boxSizing: 'inherit',
   },
   body: {
-    background: '$black',
-    color: '$white',
+    background: `linear-gradient(-160deg, $lightGreen10, $lightGreen90)`,
+    backgroundAttachment: 'fixed',
+    color: 'hsl($black)',
     margin: 0,
     padding: 0,
     fontFamily: '$sans',
-    fontSize: '$1',
     '-webkit-font-smoothing': 'antialiased',
     '-moz-osx-font-smoothing': 'grayscale',
   },

@@ -7,7 +7,7 @@ export default {
   fields: [
     {
       title: 'URL',
-      name: 'url',
+      name: 'href',
       type: 'url',
     },
   ],
