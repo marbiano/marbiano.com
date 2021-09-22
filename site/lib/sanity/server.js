@@ -1,10 +1,6 @@
 import { createClient } from 'next-sanity';
 import config from './config';
-import {
-  getEntriesBySlug,
-  getEntriesPreviewsBySlug,
-  getEntriesSlugs,
-} from './queries';
+import { getEntriesBySlug, getEntriesSlugs } from './queries';
 
 // Set up the client for fetching data
 const sanityClient = createClient(config);
@@ -35,10 +31,9 @@ export function overlayDrafts(docs) {
   return Array.from(overlayed.values());
 }
 
-export async function fetchEntry(slug, usePreview, getEntryPreview = false) {
-  const query = getEntryPreview ? getEntriesPreviewsBySlug : getEntriesBySlug;
+export async function fetchEntry(slug, usePreview) {
   const [entry] = overlayDrafts(
-    await getClient(usePreview).fetch(query, {
+    await getClient(usePreview).fetch(getEntriesBySlug, {
       slug,
     }),
   );

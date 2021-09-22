@@ -14,8 +14,7 @@ const entryFields = groq`
       _type == "entryLink" => {
         "title": @.entry->title,
         "slug": @.entry->slug.current,
-        "body": @.entry->preview
-
+        "body": select(defined(@.entry->mini) => @.entry->mini, @.entry->body[0..4]),
       }
     }
   }
@@ -34,13 +33,5 @@ export const getEntryBySlug = groq`
 export const getEntriesBySlug = groq`
   *[_type == "entry" && slug.current == $slug] {
     ${entryFields}
-  }
-`;
-
-export const getEntriesPreviewsBySlug = groq`
-  *[_type == "entry" && slug.current == $slug] {
-    _id,
-    title,
-    preview
   }
 `;

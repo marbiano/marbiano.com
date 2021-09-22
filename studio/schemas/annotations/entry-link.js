@@ -12,12 +12,6 @@ export default {
       type: 'reference',
       to: [{ type: 'entry' }],
     },
-    {
-      title: 'Preview',
-      name: 'preview',
-      type: 'boolean',
-      initialValue: true,
-    },
   ],
   blockEditor: {
     icon: BiDoorOpen,
@@ -27,7 +21,7 @@ export default {
 
 function EntryLink({ children }) {
   return (
-    <span style={{ color: 'rebeccapurple', background: 'white' }}>
+    <span style={{ color: 'hsl(19 95% 47%)', background: 'white' }}>
       {children}
     </span>
   );
