@@ -29,7 +29,7 @@ export default globalCss({
     boxSizing: 'inherit',
   },
   body: {
-    background: `linear-gradient(-160deg, $lightGreen10, $lightGreen90)`,
+    background: `linear-gradient(-160deg, $lightGreen05, $lightGreen60)`,
     backgroundAttachment: 'fixed',
     color: 'hsl($black)',
     margin: 0,

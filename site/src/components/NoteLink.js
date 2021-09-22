@@ -11,8 +11,14 @@ const Link = styled('a', {
   borderRadius: 3,
   textDecoration: 'none',
   color: '$orange80',
+  background:
+    'linear-gradient(120deg, $orange, $lightOrange 60%, hsl(50 99% 44%))',
+  backgroundClip: 'text',
+  '-webkit-text-fill-color': 'transparent',
+
   '&:hover': {
     color: '$orange',
+    '-webkit-text-fill-color': '$orange',
   },
 });
 

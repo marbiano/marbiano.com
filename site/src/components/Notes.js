@@ -17,7 +17,7 @@ const NotesGrid = styled('div', {
   maxHeight: '100vh',
   alignContent: 'flex-start',
   position: 'sticky',
-  top: '0',
+  top: 3,
 });
 
 const componentClassName = 'notes';

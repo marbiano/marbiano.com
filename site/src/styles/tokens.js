@@ -8,7 +8,7 @@ export const colors = {
   paleBlue: '208 37% 62%',
   green: '122 33% 58%',
   paleGreen: '120 22% 67%',
-  lightGreen: '120 6% 77%',
+  lightGreen: '120 4% 77%',
 };
 
 export const fonts = {
@@ -24,7 +24,7 @@ export const fonts = {
 };
 
 export const grid = {
-  column: 140,
+  column: 150,
   gutter: 30,
 };
 

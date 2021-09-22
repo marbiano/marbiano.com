@@ -35,7 +35,7 @@ const CodeBlock = ({ code, language }) => {
 const youTubeContainerClassName = css({
   position: 'relative',
   aspectRatio: '16/9',
-  margin: '3.5rem -4rem 3.5rem -3rem',
+  margin: '4rem -4rem 4rem -3rem',
   '& iframe': {
     position: 'absolute',
     top: 0,
@@ -68,27 +68,27 @@ const EntryLink = ({ title, body, slug, children }) => {
 };
 
 const FullQuote = styled('figure', {
-  padding: '3rem 2rem',
+  padding: '3rem 6rem',
   borderTop: '1px solid $black10',
   borderBottom: '1px solid $black10',
   '& blockquote': {
     fontFamily: '$serif',
+    color: '$black',
     margin: 0,
     position: 'relative',
     lineHeight: 1.66,
-    fontSize: rem(26),
+    fontSize: rem(27),
     letterSpacing: '-0.01em',
-    maxWidth: '21em',
     '&:before': {
       content: '“',
       display: 'block',
       fontFamily: '$sans',
-      fontSize: '2.5em',
+      fontSize: '5em',
       lineHeight: 1,
       color: '$orange',
       position: 'absolute',
-      top: '-0.25rem',
-      left: '-2.25rem',
+      top: '-1rem',
+      left: '-4.5rem',
     },
     '& p': {
       margin: 0,
@@ -141,7 +141,7 @@ const Body = styled('div', {
   backdropFilter: 'blur(7px) brightness(1)',
   border: '1.5px solid',
   background: 'linear-gradient(200deg, $white60, $white90 50vh, $white 90%)',
-  borderColor: '$white70 $white50 transparent $white30',
+  borderColor: '$white30 $white30 transparent $white70',
   boxShadow: 'inset 0 0 2em -0.6em $paper',
   minHeight: '50vh',
   padding: '6rem 9rem 5rem 6rem',

@@ -18,7 +18,9 @@ export default function Entry({ entry }) {
           </Logo>
         </Link>
         <Header>
-          <Title>{entry.title}</Title>
+          <Title>
+            <span>{entry.title}</span>
+          </Title>
           <Meta>
             <li>
               {lastEdited.toLocaleDateString('en-US', {
@@ -72,7 +74,7 @@ const Layout = styled('div', {
 
   [`& ${Header}`]: {
     gridRow: 1,
-    gridColumn: 2,
+    gridColumn: '2',
   },
   [`& ${Paper}`]: {
     gridRow: 2,
@@ -88,7 +90,7 @@ const Layout = styled('div', {
     display: 'block',
     position: 'fixed',
     bottom: '0',
-    right: `${rem(gridUnit(1))}`,
+    right: `${rem(gridUnit(1.25))}`,
     height: rem(120),
     width: 1,
     background: '$orange',
@@ -96,13 +98,22 @@ const Layout = styled('div', {
 });
 
 const Title = styled('h1', {
-  fontSize: rem(44),
+  fontSize: rem(58),
   fontWeight: '700',
   letterSpacing: '-0.025em',
   lineHeight: 1,
   position: 'relative',
+  marginBottom: '.5rem',
+  maxWidth: '30em',
   color: '$black90',
-  marginBottom: '1rem',
+
+  '& span': {
+    color: '$black90',
+    background:
+      'linear-gradient(to left, hsl(18 83% 15%), hsl(18 83% 5%) 25%, $black90 50%, $black 75%)',
+    backgroundClip: 'text',
+    '-webkit-text-fill-color': 'transparent',
+  },
 
   '&:before': {
     content: '',
@@ -110,15 +121,16 @@ const Title = styled('h1', {
     position: 'absolute',
     top: rem(-40),
     left: 0,
-    borderTop: '8px solid $orange',
     width: rem(40),
+    height: rem(10),
+    background: 'linear-gradient(to right, $orange, $lightOrange)',
   },
 });
 
 const Meta = styled('ul', {
   fontFamily: '$mono',
-  fontSize: 14,
-  color: '$black40',
+  fontSize: 15,
+  color: '$black50',
   listStyle: 'none',
   padding: '.5rem 0',
   margin: 0,
