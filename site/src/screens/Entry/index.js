@@ -57,7 +57,7 @@ const Header = styled('header', {
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'end',
-  paddingLeft: `${rem(grid.gutter * 1)}`,
+  paddingLeft: `${rem(grid.gutter * 2)}`,
   paddingBottom: `${rem(grid.gutter * 3)}`,
 });
 
@@ -110,7 +110,7 @@ const Title = styled('h1', {
   '& span': {
     color: '$black90',
     background:
-      'linear-gradient(to left, hsl(18 83% 15%), hsl(18 83% 5%) 25%, $black90 50%, $black 75%)',
+      'linear-gradient(to left, hsl(18 83% 20%), hsl(18 83% 5%) 25%, $black90 50%, $black 75%)',
     backgroundClip: 'text',
     '-webkit-text-fill-color': 'transparent',
   },

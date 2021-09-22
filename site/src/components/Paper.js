@@ -148,7 +148,6 @@ const Body = styled('div', {
   fontSize: rem(18),
   lineHeight: 1.85,
   color: '$black90',
-  position: 'relative',
   borderRadius: 3,
 
   '& a[href^="http:"], & a[href^="https:"]': {
