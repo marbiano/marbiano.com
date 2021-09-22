@@ -8,10 +8,10 @@ import useNotes from '@hooks/use-notes';
 import { rem } from '@styles/tokens';
 
 const Pre = styled('pre', {
-  background: 'hsl(120 11% 8% / .05)',
-  color: 'hsl(120 11% 8% / .6)',
+  background: '$black05',
+  color: '$black75',
   padding: '2em',
-  margin: '3.5rem -3rem 3.5rem -2rem',
+  margin: '3.5rem -4rem 3.5rem -3rem',
   borderRadius: '2px',
   transition: 'all 50ms',
   '& code': {
@@ -35,7 +35,7 @@ const CodeBlock = ({ code, language }) => {
 const youTubeContainerClassName = css({
   position: 'relative',
   aspectRatio: '16/9',
-  margin: '3.5rem -3rem 3.5rem -2rem',
+  margin: '3.5rem -4rem 3.5rem -3rem',
   '& iframe': {
     position: 'absolute',
     top: 0,
@@ -68,7 +68,7 @@ const EntryLink = ({ title, body, slug, children }) => {
 };
 
 const FullQuote = styled('figure', {
-  padding: '2rem',
+  padding: '3rem 2rem',
   borderTop: '1px solid $black10',
   borderBottom: '1px solid $black10',
   '& blockquote': {
@@ -76,7 +76,7 @@ const FullQuote = styled('figure', {
     margin: 0,
     position: 'relative',
     lineHeight: 1.66,
-    fontSize: rem(27),
+    fontSize: rem(26),
     letterSpacing: '-0.01em',
     maxWidth: '21em',
     '&:before': {
@@ -85,7 +85,7 @@ const FullQuote = styled('figure', {
       fontFamily: '$sans',
       fontSize: '2.5em',
       lineHeight: 1,
-      color: '$lightGreen',
+      color: '$orange',
       position: 'absolute',
       top: '-0.25rem',
       left: '-2.25rem',
@@ -97,9 +97,12 @@ const FullQuote = styled('figure', {
   '& figcaption': {
     marginTop: '1.25rem',
     fontSize: rem(16),
-    color: '$black50',
+    color: '$black60',
     '& cite': {
       fontStyle: 'normal',
+    },
+    '& span': {
+      color: '$orange80',
     },
   },
 });
@@ -111,7 +114,9 @@ const Quote = ({ text, author }) => {
         <p>{text}</p>
       </blockquote>
       <figcaption>
-        <cite>— {author}</cite>
+        <cite>
+          <span>—</span> {author}
+        </cite>
       </figcaption>
     </FullQuote>
   );
@@ -133,13 +138,18 @@ const defaultSerializers = {
 };
 
 const Body = styled('div', {
-  background: 'white',
-  padding: '5rem 9rem 5rem 6rem',
+  backdropFilter: 'blur(7px) brightness(1)',
+  border: '1.5px solid',
+  background: 'linear-gradient(200deg, $white60, $white90 50vh, $white 90%)',
+  borderColor: '$white70 $white50 transparent $white30',
+  boxShadow: 'inset 0 0 2em -0.6em $paper',
+  minHeight: '50vh',
+  padding: '6rem 9rem 5rem 6rem',
   fontSize: rem(18),
   lineHeight: 1.85,
-  color: '$black75',
+  color: '$black90',
   position: 'relative',
-  borderRadius: 2,
+  borderRadius: 3,
 
   '& a[href^="http:"], & a[href^="https:"]': {
     color: '$paleBlue',
@@ -152,8 +162,9 @@ const Body = styled('div', {
   '& h2': {
     marginTop: '2.5rem',
     marginBottom: '1rem',
-    fontSize: rem(25),
-    color: '$black85',
+    fontFamily: '$serif',
+    fontWeight: '600',
+    fontSize: rem(28),
   },
 
   '& h3': {
@@ -161,9 +172,8 @@ const Body = styled('div', {
     letterSpacing: '0.05em',
     marginTop: '2.5rem',
     marginBottom: '1rem',
-    fontSize: rem(15),
+    fontSize: rem(16),
     fontWeight: '700',
-    color: '$black85',
   },
 
   '& h2 + h3': {
@@ -176,7 +186,7 @@ const Body = styled('div', {
   },
 
   '& figure': {
-    margin: '3.5rem -3rem 3.5rem -2rem',
+    margin: '3.5rem -4rem 3.5rem -3rem',
   },
 
   '& img': {

@@ -5,14 +5,18 @@ import { styled } from '@styles/stitches.config';
 import { rem } from '@styles/tokens';
 
 const Container = styled('div', {
+  backdropFilter: 'blur(7px) brightness(1)',
+  border: '1.5px solid',
+  background: 'linear-gradient(200deg, $white60, $white90 50vh, $white 90%)',
+  borderColor: '$white70 $white50 transparent $white30',
+  boxShadow: 'inset 0 0 2em -0.6em $paper',
   fontSize: '16px',
   fontFamily: '$sans',
   lineHeight: '1.85',
   width: '30em',
-  background: 'hsl(120 6% 99% / .95)',
   position: 'relative',
   padding: '2rem 3rem',
-  borderRadius: '2px',
+  borderRadius: 3,
   color: '$black75',
 
   '& a': {
@@ -46,21 +50,23 @@ const CloseIcon = styled(Close, {
   transition: 'all 200ms',
 
   '&:hover': {
-    color: '$black75',
-    background: '$lightGreen30',
+    color: '$black60',
+    background: '$black05',
   },
 });
 
 const Title = styled('h2', {
   margin: 0,
-  fontSize: rem(21),
-  fontWeight: '700',
-  color: '$lightGreen',
+  fontFamily: '$serif',
+  fontSize: rem(23),
+  fontWeight: '600',
+  color: '$black40',
   cursor: 'pointer',
   flex: 1,
+  transition: 'color 200ms',
 
   '&.is-expanded': {
-    color: '$black75',
+    color: '$black90',
   },
 });
 

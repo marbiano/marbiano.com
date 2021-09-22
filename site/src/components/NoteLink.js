@@ -10,12 +10,9 @@ const Link = styled('a', {
   paddingRight: 6,
   borderRadius: 3,
   textDecoration: 'none',
-  color: '$black60',
-  background: '$orange05',
-  transition: 'background 200ms',
+  color: '$orange80',
   '&:hover': {
-    background: '$orange10',
-    color: '$black90',
+    color: '$orange',
   },
 });
 

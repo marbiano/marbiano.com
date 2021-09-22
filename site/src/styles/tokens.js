@@ -4,9 +4,10 @@ export const colors = {
   orange: '19 95% 47%',
   lightOrange: '27 99% 44%',
   blue: '208 85% 47%',
+  lightBlue: '208 32% 85%',
   paleBlue: '208 37% 62%',
   green: '122 33% 58%',
-  paleGreen: '12 22% 67%',
+  paleGreen: '120 22% 67%',
   lightGreen: '120 6% 77%',
 };
 

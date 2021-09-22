@@ -6,7 +6,6 @@ import { grid, gridUnit, rem } from '@styles/tokens';
 import LogoSvg from '@assets/logo.svg';
 import Paper from '@components/Paper';
 import Notes from '@components/Notes';
-import { motion } from 'framer-motion';
 
 export default function Entry({ entry }) {
   const lastEdited = new Date(entry.updatedAt);
@@ -20,23 +19,15 @@ export default function Entry({ entry }) {
         </Link>
         <Header>
           <Title>{entry.title}</Title>
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-          >
-            <Meta>
-              <li>
-                Published on{' '}
-                {lastEdited.toLocaleDateString('en-US', {
-                  month: 'long',
-                  year: 'numeric',
-                  day: 'numeric',
-                })}
-              </li>
-              <li>Viewed 1,264 times</li>
-            </Meta>
-          </motion.div>
+          <Meta>
+            <li>
+              {lastEdited.toLocaleDateString('en-US', {
+                month: 'short',
+                year: 'numeric',
+                day: 'numeric',
+              })}
+            </li>
+          </Meta>
         </Header>
         <Paper body={entry.body} />
         <Notes />
@@ -64,7 +55,7 @@ const Header = styled('header', {
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'end',
-  paddingLeft: `${rem(grid.gutter * 1.5)}`,
+  paddingLeft: `${rem(grid.gutter * 1)}`,
   paddingBottom: `${rem(grid.gutter * 3)}`,
 });
 
@@ -75,7 +66,7 @@ const Layout = styled('div', {
   )}) minmax(${rem(gridUnit(2))}, ${rem(gridUnit(5))}) minmax(${rem(
     grid.gutter,
   )}, 1fr)`,
-  gridTemplateRows: `minmax(${rem(grid.gutter)}, 45vh) 1fr`,
+  gridTemplateRows: `minmax(${rem(grid.gutter)}, 50vh) 1fr`,
   columnGap: `${rem(grid.gutter)}`,
   position: 'relative',
 
@@ -105,49 +96,49 @@ const Layout = styled('div', {
 });
 
 const Title = styled('h1', {
-  fontFamily: '$serif',
   fontSize: rem(44),
-  fontWeight: '300',
-  fontStyle: 'italic',
+  fontWeight: '700',
   letterSpacing: '-0.025em',
   lineHeight: 1,
   position: 'relative',
   color: '$black90',
-  marginBottom: '1.33rem',
+  marginBottom: '1rem',
 
   '&:before': {
     content: '',
     display: 'block',
     position: 'absolute',
-    top: '-40px',
-    left: '0',
+    top: rem(-40),
+    left: 0,
     borderTop: '8px solid $orange',
     width: rem(40),
   },
 });
 
 const Meta = styled('ul', {
+  fontFamily: '$mono',
   fontSize: 14,
-  color: '$black50',
+  color: '$black40',
   listStyle: 'none',
-  padding: 0,
+  padding: '.5rem 0',
   margin: 0,
   display: 'flex',
   alignItems: 'center',
+  transition: 'color 200ms',
   '& li': {
     display: 'flex',
     alignItems: 'center',
   },
   '& li:not(:last-child)': {
-    marginRight: '0.5em',
+    marginRight: '0.5rem',
 
     '&:after': {
       content: '" "',
       display: 'block',
-      width: '0.5em',
-      height: '0.5em',
-      background: '$black20',
-      marginLeft: '0.5em',
+      width: '5px',
+      height: '5px',
+      background: '$black10',
+      marginLeft: '0.5rem',
       marginTop: 2,
     },
   },
